@@ -1,9 +1,14 @@
-function App() {
+// import { Route, Routes, Link } from "react-router-dom";
+import Navbar from "./components/navbar/Navbar.jsx";
+
+import React from "react";
+
+const App = () => {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Navbar />
+    </>
   );
-}
+};
 
 export default App;
