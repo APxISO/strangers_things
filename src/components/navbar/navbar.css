@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Wire+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Stalemate&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sen&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Roboto&family=Sen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Roboto&family=Sen&display=swap');
 
 nav {
     margin: 0;
@@ -33,7 +33,10 @@ nav button {
     font-family: 'EB Garamond', serif;
     text-shadow: 0 0 3.5px white;
     padding-left: 15px;
-    -webkit-text-stroke: 2px red
+    color: black;
+    -webkit-text-stroke: 2px red;
+    text-decoration: none;
+    
 }
 
 .nav__items {
@@ -48,5 +51,9 @@ nav button {
 .nav__items a {
     color: red;
     font-size: 2rem;
+    font-weight: 700;
     text-shadow: 0 0 3.5px white;
+    color: black;
+    -webkit-text-stroke: 2px red;
+    text-decoration: none;
 }
