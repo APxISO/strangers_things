@@ -36,7 +36,9 @@ nav button {
     color: black;
     -webkit-text-stroke: 2px red;
     text-decoration: none;
-    
+}
+.nav__logo:hover {
+    text-shadow: 0 0 10px white;
 }
 
 .nav__items {
@@ -56,4 +58,8 @@ nav button {
     color: black;
     -webkit-text-stroke: 2px red;
     text-decoration: none;
+}
+
+.nav__items a:hover {
+    text-shadow: 0 0 10px white;
 }
