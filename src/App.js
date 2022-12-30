@@ -4,6 +4,7 @@ import React from "react";
 import Home from "./components/home/Home.jsx";
 import Posts from "./components/posts/Posts.jsx";
 import Register from "./components/register/Register.jsx";
+import Login from "./components/login/Login.jsx";
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
       <Navbar />
       {/* <Home /> */}
       {/* <Posts /> */}
-      <Register />
+      {/* <Register /> */}
+      <Login />
     </>
   );
 };
