@@ -9,9 +9,9 @@ const url = "https://strangers-things.herokuapp.com/api/2110-ftb-et-web-pt/";
 const Register= ({setToken, action, error, setError, setAllUsers}) => {
   
 
-    // console.log(email, password, confirm)
+    // console.log(username, password, confirm)
 
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   
@@ -32,7 +32,7 @@ const Register= ({setToken, action, error, setError, setAllUsers}) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email,
+            username,
             password,
           }),
         });
@@ -43,7 +43,7 @@ const Register= ({setToken, action, error, setError, setAllUsers}) => {
         }
         setToken(info.token);
         localStorage.setItem("token", info.token);
-        setEmail("");
+        setUsername("");
         setPassword("");
         setConfirm("");
         setError("Thank you for registering!");
@@ -58,7 +58,7 @@ const Register= ({setToken, action, error, setError, setAllUsers}) => {
         <div className="form_container">
         <h1>Register:</h1>
         <form onSubmit={handleRegister}>
-        <input type="text" id="username" required minlength="5" placeholder="Enter Username..." value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="text" id="username" required minlength="5" placeholder="Enter Username..." value={username} onChange={(e) => setUsername(e.target.value)} />
         <input type="password" id="password1" required minlength="8" placeholder="Create Password (Min. 8 Characters)" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" value={password} onChange={(e) => setPassword(e.target.value)} />
             {!isLogin ? (
           <input type="password" id="password2" required minlength="8" placeholder="Confirm Password..." pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" value={confirm} onChange={(e) => setConfirm(e.target.value)} />

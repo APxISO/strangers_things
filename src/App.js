@@ -12,8 +12,8 @@ const App = () => {
       <Navbar />
       {/* <Home /> */}
       {/* <Posts /> */}
-      {/* <Register /> */}
-      <Login />
+      <Register />
+      {/* <Login /> */}
     </>
   );
 };
