@@ -5,9 +5,11 @@ import './login.css'
 
 const url = "https://strangers-things.herokuapp.com/api/2110-ftb-et-web-pt/";
 
-const Login = ({setToken, error, setError,setUserData, setUserId, checkUser}) => {
+const Login = ({setToken,setUserData, setUserId, checkUser}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const lsToken = localStorage.getItem("token");
   const title = "Login";
 
   const handleLogin = async (e) => {
@@ -15,25 +17,29 @@ const Login = ({setToken, error, setError,setUserData, setUserId, checkUser}) =>
     setError("");
     try {
       const response = await fetch(`${url}/users/login`, {
-        method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${lsToken}`,
         },
         body: JSON.stringify({
           username,
           password,
         }),
       });
-      const info = await response.json();
-      setUserData(info.user);
-      setUserId(info.user.id);
+      const data = await response.json();
+      console.log(data)
+      setUserData(data.data.user);
+      setUserId(data.data.user.username);
 
-      if (info.error) {
-        return setError(info.error);
+      if (data.error) {
+        return setError(data.error.message);
       }
-      setToken(info.token);
-      localStorage.setItem("token", info.token);
-      localStorage.setItem("userId", info.user.id);
+
+      const token =  data.data.token;
+
+      setToken(token);
+      localStorage.setItem("token", token);
+      localStorage.setItem("userId", data.user.id);
       setUsername("");
       setPassword("");
       checkUser();
@@ -43,12 +49,9 @@ const Login = ({setToken, error, setError,setUserData, setUserId, checkUser}) =>
     }
   };
 
-
-
-
     return (
         <div className="form_container">
-        <h1>Login:</h1>
+        <h1>Login</h1>
         <form onSubmit={handleLogin}>
             <input required placeholder="Enter Username..." value={username} onChange={(e) => setUsername(e.target.value)} />
             <input required placeholder="Enter Password..." value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -58,6 +61,7 @@ const Login = ({setToken, error, setError,setUserData, setUserId, checkUser}) =>
             <p className="sign-in-box" id="error">
           {error}
         </p>
+        <h3>Don't have an account?</h3>
         <Link className="sign-in-box" to="/register">
           Click here to Register!
         </Link>
