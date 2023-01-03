@@ -1,0 +1,89 @@
+/*===============================DASHBOARD==================================*/
+
+.dashboard {
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard__container {
+    display: grid;
+    grid-template-columns: 14rem auto;
+    gap: 1rem;
+    background: #f2f2f2;
+    padding: 2rem;
+    margin-bottom: 5rem;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    height: 550px;
+    width: 1000px;
+}
+
+.dashboard aside {
+    
+}
+
+.dashboard aside a {
+    background: #f2f2f2;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.6rem;
+    text-decoration: none;
+}
+
+.dashboard aside ul li {
+    list-style-type: none;
+    
+}
+
+.dashboard aside ul li:not(:last-child) a {
+    border-bottom: 1px solid #707070;
+}
+
+.dashboard aside a:hover {
+    background: #d4d4d4;
+}
+
+.dashboard aside a.active {
+    background: #d4d4d4;
+}
+
+
+.dashboard main {
+    margin-left: 1.5rem;
+}
+
+.dashboard main h2 {
+    margin: 0 0 2rem 0;
+    line-height: 1;
+}
+
+.dashboard main table {
+    width: 100%;
+    text-align: left;
+}
+
+.dashboard main table th {
+    background: #d4d4d4;
+    padding: 0.8rem;
+    color: black;
+}
+
+.dashboard main table td {  
+    padding: 0.8rem;
+    border-bottom: 1px solid#707070;
+}
+
+.dashboard main table tr:hover td {
+    background: var(--color-bg);
+    color: var(--color-white);
+    cursor: default;
+    transition: var(--transition);
+}
+
+.sidebar__toggle {
+    display: none;
+}

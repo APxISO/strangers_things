@@ -5,6 +5,7 @@ import Home from "./components/home/Home.jsx";
 import Posts from "./components/posts/Posts.jsx";
 import Register from "./components/register/Register.jsx";
 import Login from "./components/login/Login.jsx";
+import Profile from "./components/profile/Profile.jsx";
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
       {/* <Home /> */}
       {/* <Posts /> */}
       {/* <Register /> */}
-      <Login />
+      {/* <Login /> */}
+      <Profile />
     </>
   );
 };

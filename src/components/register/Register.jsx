@@ -11,6 +11,7 @@ const Register= ({action}) => {
   const [confirm, setConfirm] = useState("");
   const [token, setToken] = useState("");  // added state variable for token
   const [error, setError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 
   const isLogin = action === "login";
@@ -52,6 +53,9 @@ const Register= ({action}) => {
         // Store the token in local storage and update the token state variable
         localStorage.setItem('token', token);
         setToken(token);
+
+        // Set isLoggedIn to true
+        setIsLoggedIn(true);  
 
         // Display an alert to let the user know the registration was successful
         alert(data.data.message);
