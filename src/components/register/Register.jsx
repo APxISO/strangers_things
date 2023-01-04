@@ -15,7 +15,7 @@ const Register= ({action}) => {
 
 
   const isLogin = action === "login";
-  const title = isLogin ? "Login" : "Register";
+  const title = isLoggedIn ? "Login" : "Register";
 
   const handleRegister = async (event) => {
     event.preventDefault();

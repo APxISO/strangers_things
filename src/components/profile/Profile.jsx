@@ -74,7 +74,39 @@ const Profile = () => {
         
     </tbody>
 </table>
-
+<h2>Manage Messages</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Message</th>
+            
+            <th>Edit</th>
+            <th>Delete</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+            <td>Wild Life</td>
+            <td><a href="edit-post.html" className="btn sm">Edit</a></td>
+            <td><a href="delete-post.html" className="btn danger">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+            <td>Wild Life</td>
+            <td><a href="edit-post.html" className="btn sm">Edit</a></td>
+            <td><a href="delete-post.html" className="btn danger">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+            <td>Wild Life</td>
+            <td><a href="edit-post.html" className="btn sm">Edit</a></td>
+            <td><a href="delete-post.html" className="btn danger">Delete</a></td>
+        </tr>
+        
+    </tbody>
+</table>
 
 
     </main>

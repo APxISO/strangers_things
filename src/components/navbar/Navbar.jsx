@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link} from "react-router-dom";
 
 import './navbar.css'
 
@@ -8,20 +9,20 @@ const Navbar = ({setToken, setUserData, userData}) => {
   return (
     <nav>
         <div className="container nav__container">
-                    <a href="" className="nav__logo">Stranger's Things</a>
+                    <Link to="/" className="nav__logo">Stranger's Things</Link>
                     <ul className="nav__items">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/posts">Posts</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/posts">Posts</Link></li>
                         {userData ? (
-                            <li><a href="/profile">Profile</a></li>
+                            <li><Link to="/profile">Profile</Link></li>
                             ) : (    
-                            <li><a href="/register">Register</a></li>
+                            <li><Link to="/register">Register</Link></li>
                             )}
-                        <li><a href="/" onClick={() => {
+                        <li><Link to="/" onClick={() => {
                             setToken("");
                             localStorage.removeItem("token");
                             setUserData(null);
-                            }}>Logout</a></li>        
+                            }}>Logout</Link></li>        
                     </ul>
 
                     
