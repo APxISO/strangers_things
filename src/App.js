@@ -1,4 +1,3 @@
-// import { Route, Routes, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar.jsx";

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "./register.css"
 
 const url = "https://strangers-things.herokuapp.com/api/2110-ftb-et-web-pt/";
 
 
-const Register= ({action}) => {
+const Register= () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -13,9 +13,8 @@ const Register= ({action}) => {
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-
-  const isLogin = action === "login";
-  const title = isLoggedIn ? "Login" : "Register";
+  const navigate = useNavigate();
+  
 
   const handleRegister = async (event) => {
     event.preventDefault();
@@ -38,12 +37,17 @@ const Register= ({action}) => {
           },
           body: JSON.stringify({
             user: {
-            username: username,
-            password: password,
+            username,
+            password
           }
           }),
         });
       const data = await response.json();
+       // If the user already exists, display an error message
+       if (!data.success) {
+        alert("Sorry, this username already exists. Please try again.");
+      }else 
+      
       console.log("Registration Successful!", data) // console logs the data to validate if the registration was successful
 
       const token =  data.data.token;
@@ -59,9 +63,13 @@ const Register= ({action}) => {
 
         // Display an alert to let the user know the registration was successful
         alert(data.data.message);
+        navigate("/profile");
 
          
-      }
+      } 
+         
+      // Clear the form after registering
+
     setUsername("");
     setPassword("");
     setConfirm("");
@@ -77,11 +85,11 @@ const Register= ({action}) => {
         <form onSubmit={handleRegister}>
         <input type="text" id="username" required minLength="5" placeholder="Enter Username..." value={username} onChange={(e) => setUsername(e.target.value)} />
         <input type="password" id="password1" required minLength="8" placeholder="Create Password (Min. 8 Characters)" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" value={password} onChange={(e) => setPassword(e.target.value)} />
-            {!isLogin ? (
+            
           <input type="password" id="password2" required minLength="8" placeholder="Confirm Password..." pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" value={confirm} onChange={(e) => setConfirm(e.target.value)} />
-        ) : null}
+        
         <button className="sign-in-box" type="submit">
-          {title}
+          Register
         </button>
         <p className="sign-in-box" id="error">
           {error}

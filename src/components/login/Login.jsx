@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Navigate, Link } from "react-router-dom";
+import {Navigate, Link, useNavigate } from "react-router-dom";
 import './login.css'
 
 const url = "https://strangers-things.herokuapp.com/api/2110-ftb-et-web-pt/";
@@ -8,7 +8,10 @@ const Login = ({setToken}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isToken, setIsToken] = useState(false);
+  
+  const lsToken = localStorage.getItem("token");
+
+    const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -33,23 +36,24 @@ const Login = ({setToken}) => {
         setError(data.error.message);
         return;
       }
-      localStorage.setItem("token", token);
+      
       const token =  data.data.token;
-
+      localStorage.setItem("token", token);
       setToken(token);
       
       setUsername("");
       setPassword("");
       
-      setError("You are now logged in!");
-      setIsToken(true);
+      alert("Welcome back!");
+      navigate("/profile");
+      
     } catch (error) {
       throw error;
     }
   };
 
-  if (isToken) {
-    return <Navigate to="/" />;
+  if (lsToken) {
+    return <Navigate to="/profile" />;
   } else {
     return (
         <div className="form_container">
