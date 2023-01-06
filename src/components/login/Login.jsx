@@ -44,7 +44,7 @@ const Login = ({setToken}) => {
       setUsername("");
       setPassword("");
       
-      alert("Welcome back!");
+      alert("Welcome back " + `${username}` + "!" );
       navigate("/profile");
       
     } catch (error) {

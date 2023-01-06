@@ -3,14 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import './navbar.css'
 
 
-const Navbar = ({setToken, setUser, user}) => {
+const Navbar = ({setUser, user}) => {
   let navigate = useNavigate();
 
   const handleLogout = () => {
-    setToken("");
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
     setUser(null);
+    alert("See ya later!")
     navigate("/");
+    
   }
 
   return (
