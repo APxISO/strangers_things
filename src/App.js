@@ -6,6 +6,7 @@ import Posts from "./components/posts/Posts.jsx";
 import Register from "./components/register/Register.jsx";
 import Login from "./components/login/Login.jsx";
 import Profile from "./components/profile/Profile.jsx";
+import CreatePost from "./components/createPost/CreatePost.jsx";
 
 export const url =
   "https://strangers-things.herokuapp.com/api/2110-FTB-ET-WEB-PT";
@@ -13,7 +14,16 @@ export const url =
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState("");
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
+  const [willDeliver, setWillDeliver] = useState(true);
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
+  const [content, setContent] = useState("");
+  const [message, setMessage] = useState("");
 
   const lsToken = localStorage.getItem("token");
 
@@ -26,27 +36,34 @@ const App = () => {
           Authorization: `Bearer ${lsToken}`,
         },
       });
-      const info = await response.json();
-      setPosts(info.data.posts);
+      const data = await response.json();
+      setPosts(data.data.posts);
     } else {
       const response = await fetch(`${url}/posts`);
-      const info = await response.json();
-      setPosts(info.data.posts);
+      const data = await response.json();
+      setPosts(data.data.posts);
     }
   }
 
-  async function fetchUser() {
+  const fetchUser = async () => {
+    const lsToken = localStorage.getItem("token");
     if (lsToken) {
-      const resp = await fetch(`${url}/users/me`, {
+      setToken(lsToken);
+    }
+    try {
+      const response = await fetch(`${url}/users/me`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${lsToken}`,
         },
       });
-      const info = await resp.json();
-      setUser(info.data);
+      const data = await response.json();
+      setUser(data.data);
+      setUsername(data.data.username);
+    } catch (error) {
+      console.error(error);
     }
-  }
+  };
 
   useEffect(() => {
     fetchUser();
@@ -82,13 +99,16 @@ const App = () => {
             />
           }
         ></Route>
-        {/* <Route path="/createpost">
-                    <CreatePost
-                        token={token}
-                        fetchPosts={fetchPosts}
-                        fetchUser={fetchUser}
-                    />
-                </Route> */}
+        <Route
+          path="/createpost"
+          element={
+            <CreatePost
+              token={token}
+              fetchPosts={fetchPosts}
+              fetchUser={fetchUser}
+            />
+          }
+        ></Route>
         <Route
           path="/register"
           element={<Register setToken={setToken} />}

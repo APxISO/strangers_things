@@ -4,14 +4,14 @@ import './navbar.css'
 
 
 const Navbar = ({setUser, user}) => {
+  
   let navigate = useNavigate();
-
+ 
   const handleLogout = () => {
     localStorage.removeItem('token');
     setUser(null);
     alert("See ya later!")
     navigate("/");
-    
   }
 
   return (
