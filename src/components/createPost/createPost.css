@@ -31,6 +31,15 @@ form input {
   border-radius: 10px;
 }
 
+.select_delivery{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1% auto;
+    width: 30%
+}
+
 
 form button{
   text-transform: uppercase;

@@ -3,7 +3,7 @@
 .posts_top_cont{
   overflow: hidden;
   border: transparent;
-  margin-bottom: -5rem;
+  margin-top: -90px;
 }
 
 .posts_top_right{
@@ -81,6 +81,7 @@ input[type="search"]{
   background-size:20px 20px;
   border:none;
   cursor:pointer;
+  background-color: aqua;
 }
 input[type="search"]:focus{
   outline:0;
@@ -89,13 +90,13 @@ input[type="search"]:focus{
 .posts_page_cont h1{
   font-weight: 900;
   text-align: center;
-  font-size: 2rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
   color: white;
   text-decoration: underline;
 }
 
-.posts_page_cont button{
+.search_button {
   display: inline-block;
   text-align: center;
   align-content: center;
@@ -115,7 +116,7 @@ input[type="search"]:focus{
   font-weight: 600;
   text-align: center;
   color: black;
-  background-color: aqua;
+  background-color: red;
   height: 48px;
   margin-bottom: 1rem;  
   }
@@ -131,12 +132,13 @@ input[type="search"]:focus{
   grid-auto-rows: auto;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
-  height: 100vh;
+  height: 110vh;
   width:100vw;
   justify-content: center;
   align-items: center;
   align-content: center;
   overflow: auto;
+  margin: 0;
 }
 
 .post_links {
