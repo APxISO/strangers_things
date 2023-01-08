@@ -21,6 +21,12 @@ const CreatePost = ({
     const handleSubmit = async (e) => {
         e.preventDefault();
         
+        if (!user && !token) {
+          alert("Please login to create a new post.")
+          navigate("/login");
+          return;
+        }
+
 
         try {
       const response = await fetch(`${url}/posts`, {

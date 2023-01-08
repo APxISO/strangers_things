@@ -21,6 +21,7 @@ const Navbar = ({setUser, user}) => {
         <ul className="nav__items">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/posts">Posts</Link></li>
+          
           {user && localStorage.getItem("token") ? (
               <>
               <li><Link to="/createpost">Sell</Link></li>
@@ -28,7 +29,10 @@ const Navbar = ({setUser, user}) => {
               <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
               </>
               ) : (    
+                <>
               <li><Link to="/register">Register</Link></li>
+              <li><Link to="/login">Login</Link></li>
+              </>
               )}      
         </ul>           
       </div>

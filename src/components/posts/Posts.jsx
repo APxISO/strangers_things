@@ -1,33 +1,35 @@
 import React, {useState} from 'react'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import './posts.css'
 
-const url = "https://strangers-things.herokuapp.com/api/2110-ftb-et-web-pt/";
 
-
-
-
-const Posts = ({posts, setPosts, user, token}) => {
+const Posts = ({posts, user}) => {
     const [searchTerm, setSearchTerm] = useState("");
+    let navigate = useNavigate();
+    const token = localStorage.getItem("token")
 
-    const handleDelete = async (POST_ID) => {
-        const filteredPosts = posts.filter((item) => item._id !== `${POST_ID}`);
-        setPosts(filteredPosts);
-        try {
-          const response = await fetch(`${url}posts/${POST_ID}`, {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          const data = await response.json();
-        } catch (error) {
-          console.error(error);
-        }
-      };
+    const handleCreatePost = () => {
+      return (
+        <button className="btn" onClick={() => {
+          if (!user && !token) {
+              // If user is not logged in, alert them and link to '/login'
+            alert('You must be logged in to create a new post.');
+            navigate("/login")
+            } else {
+              // If user is logged in, link to '/createpost'
+            return (
+              navigate("/createpost")
+            );
+            
+          }
+        }}>
+          Create a New Post
+        </button>
+      );
+    }
+    
 
-      const postMatches = (post, text) => {
+      const postMatches = (post) => {
         if (
           post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
           post.description.includes(searchTerm) ||
@@ -48,12 +50,9 @@ const Posts = ({posts, setPosts, user, token}) => {
             <div className='posts_top_center'>
                 <h1>Posts</h1>
             </div>
-            {user && localStorage.getItem("token") (
-        <button className='btn'><Link to="/createpost">
-          Create a New Post
-        </Link></button>
-      )}
-      
+            <div className='create_new_post_button'>
+  {handleCreatePost()}
+</div>
        
 <form className="searchbox" >
         <input 
@@ -66,9 +65,6 @@ const Posts = ({posts, setPosts, user, token}) => {
             }} />
         <button className='search_button' type="submit" value="search"></button>
     </form>
-
-
-    
         </div>
 
         <div className='posts_container'>
@@ -84,30 +80,7 @@ const Posts = ({posts, setPosts, user, token}) => {
                         <p>Price: {post.price}</p>
                         <p>Seller: {post.author.username}</p>
                         <p>Location: {post.location}</p>  
-                        {user ? (
-                  post.isAuthor ? (
-                    <>
-                      <button
-                        value={post._id}
-                        onClick={(e) => {
-                          const id = e.target.value;
-                          handleDelete(id);
-                        }}
-                      >
-                        Delete
-                      </button>
-                      <Link className="button" to={`/posts/${post._id}`}>
-                        <button>Edit Post</button>
-                      </Link>
-                    </>
-                  ) : (
-                    <>
-                      <Link id="send-message" to={`/message/${post._id}`}>
-                        <button>Send Message</button>
-                      </Link>
-                    </>
-                  )
-                ) : null}
+                        
                     
                     
                     <hr></hr>
