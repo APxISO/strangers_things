@@ -16,7 +16,7 @@ const Home = () => {
                 <h3>Already Have An Account?</h3>
                 <button className='btn'><Link to="/login">Login</Link></button>
                 <h3>Proceed As A Guest.</h3>
-                <button className='btn'><Link to="/posts">Browse</Link></button>
+                <button className='btn'><Link to="/posts">Browse Items</Link></button>
             </div>
         </div>
     </div>

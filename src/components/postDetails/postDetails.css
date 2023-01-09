@@ -1,0 +1,51 @@
+.post_details_container {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    width: 550px;
+    height: 300px;
+    margin: 8rem auto auto ;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(500, 500, 500, 0.9);
+    border-radius: 20px;
+    border: 1px dotted wheat;
+    color:black;
+}
+
+.btn{
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition: all 0.2s;
+    transition-duration: .3s;
+    border: 2px solid black;
+    letter-spacing: 2px;
+    width: 10rem;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 600;
+    text-align: center;
+    color: black;
+    background-color: aqua;
+    height: 48px;
+    margin: 2rem 2rem;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: scale(1.04);
+        background-color: red;
+}
+
+.details_user_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
