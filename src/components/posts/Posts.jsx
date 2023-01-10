@@ -69,15 +69,16 @@ const Posts = ({posts, user}) => {
         {postsToDisplay.map((post) => {
             return (
               post.active && (
-                  <Link className="post_links" to={`/posts/${post._id}`}>
-                      <div className='posts_card' key={posts._id} >
-                        <h2>{post.title}</h2>
-                        <p>{post.description}</p>
-                        <p>Price: {post.price}</p>
-                        <p>Seller: {post.author.username}</p>
-                        <p>Location: {post.location}</p>  
-                      </div>
-                  </Link>
+                <Link className="post_links" to={`/posts/${post._id}`}>
+                <div className='posts_card' key={posts._id} >
+                  <h2>{post.title}</h2>
+                  <p>{post.description}</p>
+                  <p>Price: ${post.price}</p>
+                  <p>Seller: {post.author.username}</p>
+                  <p>Location: {post.location}</p>
+                  <p>Delivery: {post.willDeliver ? 'Yes' : 'No'}</p>  
+                </div>
+            </Link>
               ))
             })}
         </div>

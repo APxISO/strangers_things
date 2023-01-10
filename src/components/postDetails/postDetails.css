@@ -47,5 +47,6 @@
 .details_user_buttons{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    margin-top: 1rem;
 }

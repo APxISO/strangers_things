@@ -59,7 +59,11 @@ return (
                             <p>Seller: {post.author.username}</p>
                             <p>Location: {post.location}</p>
 
-                            {token && post.isAuthor && (
+                            
+                        </div>
+
+                        <div>
+                        {token && post.isAuthor && (
                                 <>
                                 <div className="details_user_buttons">
                                     <button className='btn' onClick={() => handleDeletePost(post._id)}>Delete</button>
