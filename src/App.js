@@ -85,17 +85,6 @@ const App = () => {
         ></Route>
 
         <Route
-          path="/posts/:id"
-          element={
-            <PostDetails
-              posts={posts}
-              fetchPosts={fetchPosts}
-              fetchUser={fetchUser}
-            />
-          }
-        ></Route>
-
-        <Route
           path="/posts"
           element={
             <Posts
@@ -110,9 +99,58 @@ const App = () => {
           path="/createpost"
           element={
             <CreatePost
+              user={user}
               token={token}
+              setTitle={setTitle}
+              setDescription={setDescription}
+              setPrice={setPrice}
+              setWillDeliver={setWillDeliver}
+              setPosts={setPosts}
+              setError={setError}
+              title={title}
+              description={description}
+              price={price}
+              willDeliver={willDeliver}
+              error={error}
+              location={location}
+              setLocation={setLocation}
               fetchPosts={fetchPosts}
               fetchUser={fetchUser}
+            />
+          }
+        ></Route>
+
+        <Route
+          path="/posts/:id"
+          element={
+            <PostDetails
+              posts={posts}
+              fetchPosts={fetchPosts}
+              fetchUser={fetchUser}
+            />
+          }
+        ></Route>
+
+        <Route
+          path="/editpost/:id"
+          element={
+            <EditPost
+              user={user}
+              setTitle={setTitle}
+              setDescription={setDescription}
+              setPrice={setPrice}
+              setWillDeliver={setWillDeliver}
+              setError={setError}
+              title={title}
+              description={description}
+              price={price}
+              willDeliver={willDeliver}
+              error={error}
+              token={token}
+              posts={posts}
+              location={location}
+              setLocation={setLocation}
+              fetchPosts={fetchPosts}
             />
           }
         ></Route>
