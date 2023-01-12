@@ -25,6 +25,7 @@ const Posts = ({posts, user}) => {
     );
   }
     
+// function for searchbox
 
   const postMatches = (post) => {
     if (
@@ -50,7 +51,8 @@ const Posts = ({posts, user}) => {
         <div className='create_new_post_button'>
           {handleCreatePost()}
         </div>
-        <form className="searchbox" >
+        
+        <form className="searchbox" > 
             <input 
               value={searchTerm}
               placeholder="Search Posts"
