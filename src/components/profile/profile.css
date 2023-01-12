@@ -1,4 +1,3 @@
-/*===============================DASHBOARD==================================*/
 
 .dashboard {
     margin-top: 6rem;
@@ -7,83 +6,73 @@
     justify-content: center;
 }
 
-.dashboard__container {
+.dashboard_container {
     display: grid;
-    grid-template-columns: 14rem auto;
+    grid-template-columns: auto auto;
     gap: 1rem;
     background: #f2f2f2;
     padding: 2rem;
     margin-bottom: 5rem;
-    overflow: hidden;
+    overflow: scroll;
     border-radius: 20px;
     box-shadow: 0 0 20px 8px #d0d0d0;
     height: 550px;
     width: 1000px;
 }
 
-.dashboard aside {
-    
+.dashboard main th{
+    text-decoration: underline;
 }
-
-.dashboard aside a {
-    background: #f2f2f2;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    padding: 1.6rem;
-    text-decoration: none;
-}
-
-.dashboard aside ul li {
-    list-style-type: none;
-    
-}
-
-.dashboard aside ul li:not(:last-child) a {
-    border-bottom: 1px solid #707070;
-}
-
-.dashboard aside a:hover {
-    background: #d4d4d4;
-}
-
-.dashboard aside a.active {
-    background: #d4d4d4;
-}
-
-
-.dashboard main {
-    margin-left: 1.5rem;
-}
-
-.dashboard main h2 {
-    margin: 0 0 2rem 0;
-    line-height: 1;
-}
-
-.dashboard main table {
-    width: 100%;
-    text-align: left;
-}
-
-.dashboard main table th {
-    background: #d4d4d4;
-    padding: 0.8rem;
-    color: black;
-}
-
 .dashboard main table td {  
     padding: 0.8rem;
-    border-bottom: 1px solid#707070;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
 }
 
-.dashboard main table tr:hover td {
-    background: var(--color-bg);
-    color: var(--color-white);
-    cursor: default;
-    transition: var(--transition);
+.dashboard_container .btn{
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition: all 0.2s;
+    transition-duration: .3s;
+    border: 2px solid black;
+    letter-spacing: 2px;
+    width: 10rem;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 600;
+    color: black;
+    background-color: aqua;
+    height: 48px;
+    text-decoration: none;
+    margin-bottom: .75rem;
+
 }
 
-.sidebar__toggle {
-    display: none;
+.starting_dashboard {
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.starting_dashboard_container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+    background: #f2f2f2;
+    padding: 2rem;
+    
+    margin-bottom: 5rem;
+    overflow: scroll;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    height: 550px;
+    width: 1000px;
 }

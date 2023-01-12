@@ -68,12 +68,11 @@
     text-transform: uppercase;
     white-space: normal;
     font-weight: 600;
-    text-align: center;
     color: black;
     background-color: aqua;
     height: 48px;
-    margin-bottom: 1rem;
     text-decoration: none;
+    margin-bottom: .75rem;
 }
 
 .home_content button:hover {

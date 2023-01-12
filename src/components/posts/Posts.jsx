@@ -12,11 +12,9 @@ const Posts = ({posts, user}) => {
     return (
       <button className="btn" onClick={() => {
         if (!user && !token) {
-            // If user is not logged in, alert them and link to '/login'
           alert('You must be logged in to create a new post.');
           navigate("/login")
           } else {
-            // If user is logged in, link to '/createpost'
           return (
             navigate("/createpost")
           );
@@ -75,7 +73,7 @@ const Posts = ({posts, user}) => {
                   <p>{post.description}</p>
                   <p>Price: ${post.price}</p>
                   <p>Seller: {post.author.username}</p>
-                  <p>Location: {post.location}</p>
+                  <p>Location: {post.location ? post.location : "Unknown"}</p>
                   <p>Delivery: {post.willDeliver ? 'Yes' : 'No'}</p>  
                 </div>
             </Link>

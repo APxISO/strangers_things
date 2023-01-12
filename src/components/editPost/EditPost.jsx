@@ -75,9 +75,6 @@ const EditPost = ({
   };
 
 
-
-
-
   return posts.map((post) =>{
     return (
       post._id === id && (

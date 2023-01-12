@@ -9,6 +9,7 @@ import Profile from "./components/profile/Profile.jsx";
 import CreatePost from "./components/createPost/CreatePost.jsx";
 import PostDetails from "./components/postDetails/PostDetails.jsx";
 import EditPost from "./components/editPost/EditPost.jsx";
+import Message from "./components/messages/Messages.jsx";
 
 export const url =
   "https://strangers-things.herokuapp.com/api/2110-FTB-ET-WEB-PT";
@@ -74,14 +75,28 @@ const App = () => {
 
   return (
     <>
-      <Navbar user={user} setUser={setUser} fetchPosts={fetchPosts} />
+      <Navbar
+        token={token}
+        user={user}
+        setUser={setUser}
+        fetchPosts={fetchPosts}
+      />
 
       <Routes>
         <Route exact path="/" element={<Home user={user} />}></Route>
 
         <Route
           path="/profile"
-          element={<Profile user={user} fetchUser={fetchUser} />}
+          element={
+            <Profile
+              posts={posts}
+              setPosts={setPosts}
+              user={user}
+              fetchUser={fetchUser}
+              fetchPosts={fetchPosts}
+              error={error}
+            />
+          }
         ></Route>
 
         <Route
@@ -160,6 +175,18 @@ const App = () => {
           element={<Register setToken={setToken} />}
         ></Route>
         <Route path="/login" element={<Login setToken={setToken} />}></Route>
+        <Route
+          path="/message/:id"
+          element={
+            <Message
+              content={content}
+              setContent={setContent}
+              fetchUser={fetchUser}
+              message={message}
+              setMessage={setMessage}
+            />
+          }
+        ></Route>
       </Routes>
     </>
   );
